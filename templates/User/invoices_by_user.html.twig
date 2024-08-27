@@ -1,0 +1,34 @@
+<table id="datatable_invoices_by_user" class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Número de Factura</th>
+            <th>Valor de Factura</th>
+            <th>Descripción</th>
+            <th>Año de factura</th>
+            <th>Mes de factura</th>
+            <th>Concepto</th>
+            <th>Status</th>
+            <th>Accion</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for factura in object.getInvoices() %}
+            <tr>
+                <td>{{ factura.id }}</td>
+                <td>${{ factura.value|number_format(0, ',', '.') }}</td>
+                <td>{{ factura.description }}</td>
+                <td>{{ factura.yearInvoiced }}</td>
+                <td>{{ factura.monthInvoiced }}</td>
+                <td>{{ factura.concept }}</td>
+                <td>{{ factura.status }}</td>
+                <td class="btn-group" role="group" style="width: 65%">
+                    <a type="button" class="btn btn-success" href="#">Pagar</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td>No hay facturas asociadas.</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

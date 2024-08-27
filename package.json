@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "datatables.net-dt": "^2.1.4",
+    "jquery": "^3.7.1"
+  },
+  "devDependencies": {
+    "@symfony/webpack-encore": "^4.6.1"
+  }
+}
