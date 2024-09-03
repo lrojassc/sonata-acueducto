@@ -41,6 +41,10 @@ services:
         tags:
             - { name: sonata.admin, model_class: App\Entity\Invoice, controller: App\Controller\InvoiceAdminController, manager_type: orm, group: Invoices, label: Admin Invoice }
 
+    admin.payment:
+        class: App\Admin\PaymentAdmin
+        tags:
+            - { name: sonata.admin, model_class: App\Entity\Payment, controller: App\Controller\PaymentAdminController, manager_type: orm, group: Payments, label: Admin Payment }
 
     App\EventListener\UserSaveListener:
         arguments:
