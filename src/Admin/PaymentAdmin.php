@@ -26,7 +26,9 @@ final class PaymentAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $list): void
     {
         $list
-            ->add('id')
+            ->add('id', null , [
+                'label' => 'No. Pago'
+            ])
             ->add('value', null, [
                 'label' => 'Valor Pagado'
             ])
@@ -39,18 +41,28 @@ final class PaymentAdmin extends AbstractAdmin
             ->add('month_invoiced', null, [
                 'label' => 'Mes Pagado',
             ])
+            ->add('invoice.description', null, [
+                'label' => 'Descripción Factura'
+            ])
+            ->add('invoice.concept', null, [
+                'label' => 'Concepto'
+            ])
             ->add('invoice.user.name', null, [
                 'label' => 'Suscriptor'
             ])
             ->add('invoice.subscription.service', null, [
                 'label' => 'Servicio'
             ])
-            ->add('invoice.id', null, [
-                'label' => 'No. Factura',
+            ->add('created_at', null, [
+                'label' => 'Fecha de Pago',
             ])
             ->add(ListMapper::NAME_ACTIONS, null, [
+                'label' => 'Acciones',
                 'actions' => [
                     'show' => [],
+                    'report-payment' => [
+                        'template' => '/actions/payment_report_action.html.twig'
+                    ]
                 ],
             ]);
     }
@@ -100,5 +112,6 @@ final class PaymentAdmin extends AbstractAdmin
     {
         $collection->remove('create');
         $collection->remove('edit');
+        $collection->add('report-payment', $this->getRouterIdParameter().'/report-payment');
     }
 }
