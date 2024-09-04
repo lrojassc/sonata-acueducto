@@ -1,0 +1,9 @@
+{% block sonata_block_content %}
+    <ul>
+        {% for item in menu %}
+            <li>
+                <a href="{{ path('admin_invoice_custom_form') }}">{{ item.label }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

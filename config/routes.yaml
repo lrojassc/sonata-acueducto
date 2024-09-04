@@ -3,3 +3,9 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+admin_invoice_form:
+    path: /admin/invoice/custom-form
+    controller: App\Controller\InvoiceController::create
+    methods: [GET, POST]
+
