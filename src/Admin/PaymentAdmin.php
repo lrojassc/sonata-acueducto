@@ -61,7 +61,7 @@ final class PaymentAdmin extends AbstractAdmin
                 'actions' => [
                     'show' => [],
                     'report-payment' => [
-                        'template' => '/actions/payment_report_action.html.twig'
+                        'template' => '/Actions/payment_report_action.html.twig'
                     ]
                 ],
             ]);

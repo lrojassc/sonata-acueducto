@@ -19,7 +19,7 @@ final class PaymentAdminController extends CRUDController
         $options->set('isHtml5ParserEnabled', true);
         $dompdf = new Dompdf($options);
 
-        $html = $this->renderView('pdf/payment_report.html.twig', [
+        $html = $this->renderView('Pdf/payment_report.html.twig', [
             'payment' => $payment
         ]);
 
