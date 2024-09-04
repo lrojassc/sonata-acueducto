@@ -33,26 +33,42 @@ final class InvoiceAdmin extends AbstractAdmin
             ->add('month_invoiced')
             ->add('concept')
             ->add('status')
-            ->add('created_at')
-            ->add('updated_at')
         ;
     }
 
     protected function configureListFields(ListMapper $list): void
     {
         $list
-            ->add('id')
-            ->add('value')
-            ->add('description')
-            ->add('year_invoiced')
-            ->add('month_invoiced')
-            ->add('concept')
-            ->add('status', null, [
-                'label' => 'Activo',
-                'editable' => true,
+            ->add('id', null, [
+                'label' => 'No. Factura'
             ])
-            ->add('created_at')
-            ->add('updated_at')
+            ->add('value', null, [
+                'label' => 'Valor',
+            ])
+            ->add('description', null, [
+                'label' => 'Descripcion'
+            ])
+            ->add('year_invoiced', null, [
+                'label' => 'Año'
+            ])
+            ->add('month_invoiced', null, [
+                'label' => 'Mes'
+            ])
+            ->add('concept', null, [
+                'label' => 'Concepto'
+            ])
+            ->add('status', null, [
+                'label' => 'Estado',
+            ])
+            ->add('user.name', null, [
+                'label' => 'Usuario'
+            ])
+            ->add('subscription.service', null, [
+                'label' => 'Servicio'
+            ])
+            ->add('user.address', null, [
+                'label' => 'Dirección'
+            ])
             ->add(ListMapper::NAME_ACTIONS, null, [
                 'actions' => [
                     'show' => [],
